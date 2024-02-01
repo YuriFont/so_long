@@ -1,6 +1,7 @@
 /* XPM */
 static char *gram[] = {
-"1008 1008 4 1",
+"columns rows colors chars-per-pixel",
+"1008 1008 4 1 ",
 "  c #035E1A",
 ". c #008726",
 "X c #00D63D",
