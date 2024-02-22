@@ -6,11 +6,14 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/01 09:11:56 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/22 14:36:29 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# include "../libraries/minilibx-linux/mlx.h"
+# include <stdlib.h>
 
 #endif
