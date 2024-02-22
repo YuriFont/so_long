@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/22 16:36:15 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:32:33 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,18 @@ void	initializing_window(t_data *data)
 	}
 }
 
-void	destroy_window(t_data *data)
+int	destroy_window(t_data *data)
 {
 	mlx_destroy_window(data->ptr_mlx, data->w_mlx);
 	mlx_destroy_display(data->ptr_mlx);
 	free(data->ptr_mlx);
 	exit(0);
+	return (0);
 }
 
 int	on_keypress(int key, t_data *data)
 {
-	if (key == 65307)
+	if (key == 65307 || key < EXIT_BUTTON)
 		destroy_window(data);
 	printf("Pressed key: %d\n", key);
 	return (0);
@@ -46,8 +47,9 @@ int	main(void)
 {
 	t_data	data;
 
-	initializing_window(&data);	
-	mlx_hook(data.w_mlx, 2, 1L<<0, on_keypress, &data);
+	initializing_window(&data);
+	mlx_key_hook(data.w_mlx, on_keypress, &data);
+	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
 	mlx_loop(data.ptr_mlx);
 	return (0);
 }

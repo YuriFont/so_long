@@ -6,12 +6,14 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/22 16:26:47 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:00:43 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define EXIT_BUTTON -7483648
 
 # include "../libraries/minilibx-linux/mlx.h"
 # include <stdlib.h>
