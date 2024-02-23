@@ -13,15 +13,19 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# define EXIT_BUTTON -7483648
-
 # include "../libraries/minilibx-linux/mlx.h"
 # include <stdlib.h>
+
+# define GRAM "./textures/gram.xpm"
+# define TREE "./textures/tree.xpm"
 
 typedef struct s_data
 {
 	void	*ptr_mlx;
 	void	*w_mlx;
+	void	*image_gram;
+	void	*image_tree;
+	int		lenght;
 }	t_data;
 
 #endif

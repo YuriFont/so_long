@@ -37,7 +37,7 @@ int	destroy_window(t_data *data)
 
 int	on_keypress(int key, t_data *data)
 {
-	if (key == 65307 || key < EXIT_BUTTON)
+	if (key == 65307)
 		destroy_window(data);
 	printf("Pressed key: %d\n", key);
 	return (0);
@@ -48,6 +48,10 @@ int	main(void)
 	t_data	data;
 
 	initializing_window(&data);
+	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
+	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
+	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_gram, 0, 0);
+	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_gram, 50, 50);
 	mlx_key_hook(data.w_mlx, on_keypress, &data);
 	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
 	mlx_loop(data.ptr_mlx);

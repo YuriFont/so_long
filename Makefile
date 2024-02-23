@@ -10,3 +10,10 @@
 #                                                                              #
 # **************************************************************************** #
 
+SO_LONG = so_long.c
+LIBMLX = libmlx_Linux.a
+
+NAME:
+		cc -Wall -Wextra -Werror $(addprefix source/, $(SO_LONG)) $(addprefix source/, $(LIBMLX)) -Lmlx -lXext -lX11
+
+all: $(NAME)
