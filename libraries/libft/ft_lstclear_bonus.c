@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:47:26 by yufonten          #+#    #+#             */
-/*   Updated: 2023/10/25 14:56:51 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:29:03 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+void	ft_lstclear(t_list_libft **lst, void (*del)(void*))
 {
-	t_list	*aux;
+	t_list_libft	*aux;
 
 	if (!del || !lst || !*lst)
 		return ;

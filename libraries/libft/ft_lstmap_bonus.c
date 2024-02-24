@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:08:38 by yufonten          #+#    #+#             */
-/*   Updated: 2023/10/25 16:12:07 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:29:11 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+t_list_libft	*ft_lstmap(t_list_libft *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*first;
-	t_list	*new;
+	t_list_libft	*first;
+	t_list_libft	*new;
 
 	if (!f || !del)
 		return (NULL);

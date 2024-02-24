@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   init_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 14:16:08 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/24 14:29:06 by yufonten         ###   ########.fr       */
+/*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
+/*   Updated: 2024/02/24 14:20:43 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "so_long.h"
 
-t_list_libft	*ft_lstlast(t_list_libft *lst)
+int	check_arq(char *arq)
 {
-	while (lst != NULL)
+	int		i;
+	int		j;
+	char	c;
+
+	i = ft_strlen(arq);
+	j = 1;
+	while (j < 5)
 	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
+		c = arq[i - j];
+		if (c != 'r' && c != 'e'&& c != 'b' && c != '.')
+			return (0);
+		j++;
 	}
-	return (NULL);
+	return (1);
 }
