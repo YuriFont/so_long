@@ -6,25 +6,39 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:48:42 by yufonten          #+#    #+#              #
-#    Updated: 2024/02/24 14:32:42 by yufonten         ###   ########.fr        #
+#    Updated: 2024/02/24 14:53:36 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SO_LONG = so_long.c\
-			init_map.c
-LIBMLX = libmlx_Linux.a
+
+SOURCE = ./source/
+SO_LONG_C = $(SOURCE)so_long.c\
+			$(SOURCE)init_map.c
+LIBMLX = ./libraries/minilibx-linux/
+LIBMLX_A = $(LIBMLX)libmlx_Linux.a
 LIBFT = ./libraries/libft/
 LIBFT_A = $(LIBFT)libft.a
-
-
-all: $(NAME)
+FT_PRINTF = ./libraries/ft_printf/
+FT_PRINTF_A = $(FT_PRINTF)libftprintf.a
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+MLXFLAGS = -Lmlx -lXext -lX11
+RM = rm -rf
 
 NAME:
 		$(MAKE) -C $(LIBFT)
-		cc -Wall -Wextra -Werror $(addprefix source/, $(SO_LONG)) $(addprefix source/, $(LIBMLX)) $(LIBFT_A) -Lmlx -lXext -lX11
+		$(MAKE) -C $(FT_PRINTF)
+		$(MAKE) -C $(LIBMLX)
+		$(CC) $(CFLAGS) $(SO_LONG_C) $(LIBMLX_A) $(LIBFT_A) $(FT_PRINTF_A) $(MLXFLAGS)
 
 clean:
 		@$(MAKE) clean -C $(LIBFT)
+		@$(MAKE) clean -C $(FT_PRINTF)
+		@$(MAKE) clean -C $(LIBMLX)
 
 fclean: clean
 		@$(MAKE) fclean -C $(LIBFT)
+		@$(MAKE) fclean -C $(FT_PRINTF)
+		$(RM) *.out
+
+all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/24 14:20:31 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/24 14:59:29 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ int	main(int ac, char **av)
 {
 	t_data	data;
 
-	if (ac == 3)
+	if (ac == 2)
 	{
-		if (!check_arq(av[2]))
+		if (!check_arq(av[1]))
+		{
+			ft_printf("error\n");
 			exit(1);
+		}
 		initializing_window(&data);
 		data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
 		data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
@@ -60,6 +63,8 @@ int	main(int ac, char **av)
 		mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
 		mlx_loop(data.ptr_mlx);
 	}
+	else
+		
 	
 	return (0);
 }

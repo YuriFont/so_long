@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/24 14:21:42 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/24 15:00:59 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include "../libraries/minilibx-linux/mlx.h"
 # include "../libraries/get_next_line/get_next_line.h"
 # include "../libraries/libft/libft.h"
+# include "../libraries/ft_printf/ft_printf.h"
 # include <stdlib.h>
 
-# define GRAM "./textures/gram.xpm"
-# define TREE "./textures/tree.xpm"
+# define GRAM "./assets/gram.xpm"
+# define TREE "./assets/tree.xpm"
 
 typedef struct s_data
 {
