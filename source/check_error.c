@@ -1,50 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_map.c                                         :+:      :+:    :+:   */
+/*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 14:41:54 by yufonten         ###   ########.fr       */
+/*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
+/*   Updated: 2024/02/25 13:49:25 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	map_rows(t_game *data, char *file)
+int	check_file(char *file)
 {
-	char	*line;
-	int		rows;
+	int		i;
+	int		j;
 	int		fd;
 
-	rows = 0;
-	fd = open(file, O_RDONLY);
-	while (1)
+	i = ft_strlen(file);
+	j = 1;
+	while (j < 5)
 	{
-		line = get_next_line(fd);
-		if (!line)
+		if (file[i - j] != 'r' && file[i - j] != 'e'
+			&& file[i - j] != 'b' && file[i - j] != '.')
 		{
-			free(line);
-			break ;
+			ft_printf("Error: This file is not .ber\n");
+			exit(1);
 		}
-		rows++;
+		j++;
 	}
-	data->map.rows = rows;
-	close(fd);
-}
-
-void	map_columns(t_game *data, char *file)
-{
-	char	*line;
-	int		columns;
-	int		fd;
-
-	columns = 0;
 	fd = open(file, O_RDONLY);
-	line = get_next_line(fd);
-	while (line[columns] != '\n')
-		columns++;
+	if (fd < 0)
+	{
+		ft_printf("Error: Unable to find this map\n");
+		exit(1);
+	}
 	close(fd);
-	data->map.columns = columns;
+	return (1);
 }

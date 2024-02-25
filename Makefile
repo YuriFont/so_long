@@ -6,14 +6,16 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:48:42 by yufonten          #+#    #+#              #
-#    Updated: 2024/02/24 14:53:36 by yufonten         ###   ########.fr        #
+#    Updated: 2024/02/25 14:28:45 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
+NAME = so_long
 SOURCE = ./source/
 SO_LONG_C = $(SOURCE)so_long.c\
-			$(SOURCE)init_map.c
+			$(SOURCE)init_map.c\
+			$(SOURCE)check_error.c
+
 LIBMLX = ./libraries/minilibx-linux/
 LIBMLX_A = $(LIBMLX)libmlx_Linux.a
 LIBFT = ./libraries/libft/
@@ -29,7 +31,7 @@ NAME:
 		$(MAKE) -C $(LIBFT)
 		$(MAKE) -C $(FT_PRINTF)
 		$(MAKE) -C $(LIBMLX)
-		$(CC) $(CFLAGS) $(SO_LONG_C) $(LIBMLX_A) $(LIBFT_A) $(FT_PRINTF_A) $(MLXFLAGS)
+		$(CC) $(CFLAGS) $(SO_LONG_C) $(LIBMLX_A) $(LIBFT_A) $(FT_PRINTF_A) $(MLXFLAGS) -o $(NAME)
 
 clean:
 		@$(MAKE) clean -C $(LIBFT)

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/24 16:07:43 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:45:05 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,28 +45,23 @@ int	on_keypress(int key, t_game *data)
 
 int	main(int ac, char **av)
 {
-	if (ac == 2)
+	t_game	data;
+
+	if (ac != 2)
 	{
-		t_game	data;
-		if (!check_arq(av[1]) || !(data.fd = open(av[1], O_RDONLY)))
-		{
-			ft_printf("Esse arquivo não existe ou não é .ber\n");
-			exit(1);
-		}
-		initializing_window(&data);
-		data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
-		data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
-		data.image_kidf = mlx_xpm_file_to_image(data.ptr_mlx, KID_F, &data.lenght, &data.lenght);
-		mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_kidf, 50, 50);
-		mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 0);
-		mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 50);
-		mlx_key_hook(data.w_mlx, on_keypress, &data);
-		mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
-		mlx_loop(data.ptr_mlx);
+		ft_printf("Faltam argumentos\n");
+		exit(1);	
 	}
-	else
-		ft_printf("Faltam argumentos");
-		
-	
+	check_file(av[1]);
+	initializing_window(&data);
+	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
+	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
+	data.image_kidf = mlx_xpm_file_to_image(data.ptr_mlx, KID_F, &data.lenght, &data.lenght);
+	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_kidf, 50, 50);
+	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 0);
+	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 50);
+	mlx_key_hook(data.w_mlx, on_keypress, &data);
+	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
+	mlx_loop(data.ptr_mlx);
 	return (0);
 }
