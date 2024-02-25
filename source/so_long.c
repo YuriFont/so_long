@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 14:45:05 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/25 15:48:33 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int ac, char **av)
 		exit(1);	
 	}
 	check_file(av[1]);
-	initializing_window(&data);
+	/*initializing_window(&data);
 	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
 	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
 	data.image_kidf = mlx_xpm_file_to_image(data.ptr_mlx, KID_F, &data.lenght, &data.lenght);
@@ -62,6 +62,6 @@ int	main(int ac, char **av)
 	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 50);
 	mlx_key_hook(data.w_mlx, on_keypress, &data);
 	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
-	mlx_loop(data.ptr_mlx);
+	mlx_loop(data.ptr_mlx);*/
 	return (0);
 }

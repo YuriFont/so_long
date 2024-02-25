@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 13:49:25 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/25 14:58:48 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,12 @@ int	check_file(char *file)
 		exit(1);
 	}
 	close(fd);
+	return (1);
+}
+
+int	check_rectangular(t_game *data)
+{
+	if (data->map.columns == data->map.rows)
+		return (0);
 	return (1);
 }
