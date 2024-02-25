@@ -6,7 +6,7 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/19 16:16:17 by yufonten          #+#    #+#              #
-#    Updated: 2024/02/25 14:23:03 by yufonten         ###   ########.fr        #
+#    Updated: 2024/02/25 18:28:25 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,8 @@ SRCS =	ft_isalpha.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
 	get_next_line.c\
-	get_next_line_utils.c
+	get_next_line_utils.c\
+	ft_strcpy.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -57,7 +58,7 @@ BONUS = ft_lstnew_bonus.c\
 	ft_lstdelone_bonus.c\
 	ft_lstclear_bonus.c\
 	ft_lstiter_bonus.c\
-	ft_lstmap_bonus.c
+	ft_lstmap_bonus.c\
 
 BONUS_OBJS = $(BONUS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:48:01 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 14:25:08 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:25:04 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,5 +107,7 @@ void	ft_lstclear(t_list_libft **lst, void (*del)(void *));
 void	ft_lstiter(t_list_libft *lst, void (*f)(void *));
 
 t_list_libft	*ft_lstmap(t_list_libft *lst, void *(*f)(void *), void (*del)(void *));
+
+void    ft_strcpy(char *str1, const char *str2);
 
 #endif

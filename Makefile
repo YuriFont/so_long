@@ -6,7 +6,7 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:48:42 by yufonten          #+#    #+#              #
-#    Updated: 2024/02/25 14:28:45 by yufonten         ###   ########.fr        #
+#    Updated: 2024/02/25 18:38:23 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,6 @@ clean:
 fclean: clean
 		@$(MAKE) fclean -C $(LIBFT)
 		@$(MAKE) fclean -C $(FT_PRINTF)
-		$(RM) *.out
+		$(RM) $(NAME)
 
 all: $(NAME)
