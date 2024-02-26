@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:54:32 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:02:01 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,7 @@ int	main(int ac, char **av)
 	}
 	check_file(av[1]);
 	init_map(&data, av[1]);
-	int		i = 0;
-	while (data.map.map[i])
-		ft_printf("%s", data.map.map[i++]);
-	i = 0;
-	while (data.map.map[i])
-		free(data.map.map[i++]);
-	free(data.map.map);
+	free_map(&data);
 	/*initializing_window(&data);
 	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
 	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
