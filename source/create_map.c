@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:27:06 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:52:58 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,11 @@ char	**create_map(char *file)
 	free(holder_map);
 	close(fd);
 	return (map);
+}
+
+void	init_map(t_game *data, char *file)
+{
+	map_columns(data, file);
+	map_rows(data, file);
+	data->map.map = create_map(file);
 }
