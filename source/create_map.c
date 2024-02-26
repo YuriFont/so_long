@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:52:58 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:19:43 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ void	map_columns(t_game *data, char *file)
 	columns = 0;
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
+	if (!line)
+	{
+		free(line);
+		ft_printf("Error: The .ber file is empty.\n");
+		exit(1);
+	}
 	while (line[columns] != '\n')
 		columns++;
 	free(line);
@@ -60,8 +66,6 @@ char	**create_map(char *file)
 	char	**map;
 
 	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		return (NULL);
 	holder_map = ft_strdup("");
 	while (1)
 	{
@@ -73,6 +77,7 @@ char	**create_map(char *file)
 		free(line);
 		free(holder);
 	}
+	free(line);
 	map = ft_split(holder_map, '\n');
 	free(holder_map);
 	close(fd);
@@ -84,4 +89,9 @@ void	init_map(t_game *data, char *file)
 	map_columns(data, file);
 	map_rows(data, file);
 	data->map.map = create_map(file);
+	if (!check_rectangular(data))
+	{
+		ft_printf("Error: This map not is rectangular\n");
+		exit(1);
+	}
 }

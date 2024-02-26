@@ -6,13 +6,13 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:47:58 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:12:02 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	check_file_ber(char *file)
+void	check_file_ber(char *file)
 {
 	int	i;
 	int	j;
@@ -29,13 +29,11 @@ int	check_file_ber(char *file)
 		}
 		j++;
 	}
-	return (0);
 }
 
-int	check_file(char *file)
+void	check_file(char *file)
 {
 	int		fd;
-	char	*line;
 
 	check_file_ber(file);
 	fd = open(file, O_RDONLY);
@@ -44,19 +42,14 @@ int	check_file(char *file)
 		ft_printf("Error: Unable to find this map\n");
 		exit(1);
 	}
-	line = get_next_line(fd);
-	if (!line)
-	{
-		ft_printf("Error: The .ber file is empty\n");
-		free(line);
-		exit(1);
-	}
-	free(line);
 	close(fd);
-	return (1);
 }
 
 int	check_rectangular(t_game *data)
 {
-	return (data->map.rows == data->map.columns ? 0 : 1);
+	if (data->map.rows == data->map.columns)
+		return (0);
+	if (data->map.rows <= 2 || data->map.columns <= 2)
+		return (0);
+	return (1);
 }

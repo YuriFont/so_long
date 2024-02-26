@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 17:02:01 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:05:06 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	initializing_window(t_game *data)
 	data->ptr_mlx = mlx_init();
 	if (!data->ptr_mlx)
 		exit(1);
-	data->w_mlx = mlx_new_window(data->ptr_mlx, 500, 400, "Test");
+	data->w_mlx = mlx_new_window(data->ptr_mlx, (data->map.columns) * 50, data->map.rows * 50, "Pokemon");
 	if (!data->w_mlx)
 	{
 		free(data->ptr_mlx);
@@ -54,16 +54,11 @@ int	main(int ac, char **av)
 	}
 	check_file(av[1]);
 	init_map(&data, av[1]);
-	free_map(&data);
-	/*initializing_window(&data);
-	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
-	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
-	data.image_kidf = mlx_xpm_file_to_image(data.ptr_mlx, KID_F, &data.lenght, &data.lenght);
-	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_kidf, 50, 50);
-	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 0);
-	mlx_put_image_to_window(data.ptr_mlx, data.w_mlx, data.image_tree, 0, 50);
+	initializing_window(&data);
 	mlx_key_hook(data.w_mlx, on_keypress, &data);
 	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
-	mlx_loop(data.ptr_mlx);*/
+	draw_map(&data);
+	mlx_loop(data.ptr_mlx);
+	free_map(&data);
 	return (0);
 }
