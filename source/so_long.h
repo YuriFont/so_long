@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 18:12:23 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:10:39 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ typedef struct s_game
 }	t_game;
 
 /* init_map.c */
-void	map_rows(t_game *data, char *file);
-void	map_columns(t_game *data, char *file);
-void	creat_map(t_game *data, char *file);
-void	fill_map(t_game *data, char *file);
+char	**create_map(char *file);
 
 /* check_error.c */
 int		check_file(char *file);

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 18:43:02 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:11:05 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,28 @@ int	main(int ac, char **av)
 		exit(1);	
 	}
 	check_file(av[1]);
-	map_rows(&data, av[1]);
-	map_columns(&data, av[1]);
-	creat_map(&data, av[1]);
-	int	i = 0;
+	data.map.map = create_map(av[1]);
+	int		i = 0;
+	while (data.map.map[i])
+		ft_printf("%s\n", data.map.map[i++]);
+	i = 0;
+	while (data.map.map[i])
+		free(data.map.map[i++]);
+	free(data.map.map);
+	/*int	i = 0;
+	int	j;
 
 	ft_printf("rows:%d\n columns:%d\n", data.map.rows, data.map.columns);
 	while (data.map.map[i])
 	{
-		ft_printf("%s", data.map.map[i]);
+		j = 0;
+		while (data.map.map[i][j])
+		{
+			ft_printf("%c", data.map.map[i][j]);
+			j++;
+		}
 		i++;
-	}
+	}*/
 	/*initializing_window(&data);
 	data.image_gram = mlx_xpm_file_to_image(data.ptr_mlx, GRAM, &data.lenght, &data.lenght);
 	data.image_tree = mlx_xpm_file_to_image(data.ptr_mlx, TREE, &data.lenght, &data.lenght);
