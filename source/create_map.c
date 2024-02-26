@@ -6,11 +6,50 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:10:35 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:27:06 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	map_rows(t_game *data, char *file)
+{
+	char	*line;
+	int		rows;
+	int		fd;
+
+	rows = 0;
+	fd = open(file, O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+		{
+			free(line);
+			break ;
+		}
+		free(line);
+		rows++;
+	}
+	data->map.rows = rows;
+	close(fd);
+}
+
+void	map_columns(t_game *data, char *file)
+{
+	char	*line;
+	int		columns;
+	int		fd;
+
+	columns = 0;
+	fd = open(file, O_RDONLY);
+	line = get_next_line(fd);
+	while (line[columns] != '\n')
+		columns++;
+	free(line);
+	close(fd);
+	data->map.columns = columns;
+}
 
 char	**create_map(char *file)
 {

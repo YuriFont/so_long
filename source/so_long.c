@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 16:11:05 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:33:20 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,11 @@ int	main(int ac, char **av)
 	}
 	check_file(av[1]);
 	data.map.map = create_map(av[1]);
+	map_columns(&data, av[1]);
+	map_rows(&data, av[1]);
 	int		i = 0;
 	while (data.map.map[i])
-		ft_printf("%s\n", data.map.map[i++]);
+		ft_printf("%s", data.map.map[i++]);
 	i = 0;
 	while (data.map.map[i])
 		free(data.map.map[i++]);
