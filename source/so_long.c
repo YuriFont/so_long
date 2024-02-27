@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 20:05:06 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:18:03 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,20 +26,14 @@ void	initializing_window(t_game *data)
 	}
 }
 
-int	destroy_window(t_game *data)
-{
-	mlx_destroy_window(data->ptr_mlx, data->w_mlx);
-	mlx_destroy_display(data->ptr_mlx);
-	free(data->ptr_mlx);
-	exit(0);
-	return (0);
-}
-
 int	on_keypress(int key, t_game *data)
 {
-	if (key == 65307)
+	data->moves = 0;
+	if (key == ESC)
 		destroy_window(data);
-	printf("Pressed key: %d\n", key);
+	/*else
+		move(data, key);*/
+	ft_printf("Moves: %d\n", data->moves);
 	return (0);
 }
 

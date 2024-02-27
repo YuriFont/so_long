@@ -1,32 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit_game.c                                        :+:      :+:    :+:   */
+/*   make_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/26 17:00:13 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 14:59:24 by yufonten         ###   ########.fr       */
+/*   Created: 2024/02/27 15:04:43 by yufonten          #+#    #+#             */
+/*   Updated: 2024/02/27 15:20:29 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    free_map(t_game *data)
+void	take_position(t_game *data)
 {
-    int i;
+	int	i;
+	int	j;
 
-    i = 0;
+	i = 0;
 	while (data->map.map[i])
-		free(data->map.map[i++]);
-	free(data->map.map);
+	{
+		j = 0;
+		while (data->map.map[i][j])
+		{
+			if (data->map.map[i][j] == 'P')
+            {
+				data->pos.x = j;
+                data->pos.y = i;
+                break ;
+            }
+            j++;
+		}
+		i++;
+	}
 }
 
-int	destroy_window(t_game *data)
+/*int move(t_game *data, int key)
 {
-	mlx_destroy_window(data->ptr_mlx, data->w_mlx);
-	mlx_destroy_display(data->ptr_mlx);
-	free(data->ptr_mlx);
-	exit(0);
-	return (0);
-}
+    if (key == A || key == UP)
+    return (0);
+}*/

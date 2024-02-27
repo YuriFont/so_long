@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 14:33:43 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:17:54 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@
 # define POK "./assets/pokeball.xpm"
 # define EXIT "./assets/exit.xpm"
 
+# define A 97
+# define W 119
+# define S 115
+# define D 100
+# define UP 65362
+# define DOWN 65364
+# define RIGHT 65363
+# define LEFT 65361
+# define ESC 65307
+
 typedef struct s_map
 {
 	char	**map;
@@ -52,12 +62,20 @@ typedef struct s_img
 	void	*img_pok;
 }	t_img;
 
+typedef struct s_pos
+{
+	int	x;
+	int y;
+}	t_pos;
+
 typedef struct s_game
 {
 	void	*ptr_mlx;
 	void	*w_mlx;
+	int		moves;
 	t_map	map;
 	t_img	img;
+	t_pos	pos;
 }	t_game;
 
 /* init_map.c */
@@ -72,10 +90,14 @@ int	check_assets(t_game *data);
 
 /* exit_game.c */
 void	free_map(t_game *data);
+int		destroy_window(t_game *data);
 
 /* draw_map.c */
 void	render_images(t_game *data);
 void	put_image(t_game *data, char px, int x, int y);
 void	draw_map(t_game *data);
+
+/* make_move.c */
+void	take_position(t_game *data);
 
 #endif
