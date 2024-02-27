@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 15:17:54 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 15:50:06 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ void	draw_map(t_game *data);
 
 /* make_move.c */
 void	take_position(t_game *data);
+void		move(t_game *data, int key);
 
 #endif
