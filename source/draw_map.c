@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:18:57 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 15:33:52 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:40:04 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ void	put_image(t_game *data, char px, int x, int y)
 	else if (px == 'P')
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
 			data->img.img_kidF, x * 50, y * 50);
-	else if (px == 'B')
-		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
-			data->img.img_kidB, x * 50, y * 50);
-	else if (px == 'L')
-		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
-			data->img.img_kidL, x * 50, y * 50);
-	else if (px == 'R')
-		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
-			data->img.img_kidR, x * 50, y * 50);
 }
 
 void	draw_map(t_game *data)

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 15:50:06 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:00:45 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ int	check_assets(t_game *data);
 /* exit_game.c */
 void	free_map(t_game *data);
 int		destroy_window(t_game *data);
+void	free_images(t_game *data);
 
 /* draw_map.c */
 void	render_images(t_game *data);

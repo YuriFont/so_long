@@ -6,12 +6,11 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 15:36:21 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:06:50 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include <stdio.h>
 
 void	initializing_window(t_game *data)
 {
@@ -34,6 +33,8 @@ int	on_keypress(int key, t_game *data)
 		destroy_window(data);
 	else
 		move(data, key);
+	if (data->map.colection == 0 && data->map.map[data->pos.y][data->pos.x] == 'E')
+		destroy_window(data);
 	moves++;
 	ft_printf("Moves: %d\n", moves);
 	return (0);
