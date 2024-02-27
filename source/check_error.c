@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 20:12:02 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:36:15 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,19 @@ void	check_file(char *file)
 int	check_rectangular(t_game *data)
 {
 	if (data->map.rows == data->map.columns)
-		return (0);
+		return (1);
 	if (data->map.rows <= 2 || data->map.columns <= 2)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
+}
+
+int	check_assets(t_game *data)
+{
+	if (data->map.colection < 1)
+		return (1);
+	if (data->map.person != 1)
+		return (1);
+	if (data->map.exit != 1)
+		return (1);
+	return (0);
 }

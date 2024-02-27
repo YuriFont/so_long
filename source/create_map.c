@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/26 20:19:43 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:33:28 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,14 +84,41 @@ char	**create_map(char *file)
 	return (map);
 }
 
+void	count_assets(t_game *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	data->map.person = 0;
+	data->map.exit = 0;
+	data->map.colection = 0;
+	while (data->map.map[i])
+	{
+		j = 0;
+		while (data->map.map[i][j])
+		{
+			if (data->map.map[i][j] == 'P')
+				data->map.person++;
+			else if (data->map.map[i][j] == 'E')
+				data->map.exit++;
+			else if (data->map.map[i][j] == 'C')
+				data->map.colection++;
+			j++;
+		}
+		i++;
+	}
+}
+
 void	init_map(t_game *data, char *file)
 {
 	map_columns(data, file);
 	map_rows(data, file);
 	data->map.map = create_map(file);
-	if (!check_rectangular(data))
+	count_assets(data);
+	if (check_rectangular(data) || check_assets(data))
 	{
-		ft_printf("Error: This map not is rectangular\n");
+		ft_printf("Error: This map is irregular\n");
 		exit(1);
 	}
 }
