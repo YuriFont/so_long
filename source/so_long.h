@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 17:00:45 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 18:51:44 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	init_map(t_game *data, char *file);
 void	check_file(char *file);
 void	check_file_ber(char *file);
 int		check_rectangular(t_game *data);
-int	check_assets(t_game *data);
+int		check_assets(t_game *data);
 
 /* exit_game.c */
 void	free_map(t_game *data);
@@ -100,6 +100,6 @@ void	draw_map(t_game *data);
 
 /* make_move.c */
 void	take_position(t_game *data);
-void		move(t_game *data, int key);
+void	move(t_game *data, int key);
 
 #endif
