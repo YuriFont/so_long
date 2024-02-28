@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 15:04:43 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 17:25:50 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 10:46:58 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,10 @@ void	put_image_move(t_game *data, char px, int x, int y)
 			data->img.img_kidR, x * 50, y * 50);
 	}
 	if (data->map.map[y][x] == 'C')
+	{
 		data->map.colection--;
+		data->map.map[y][x] = '0';
+	}
 }
 
 int	check_move(t_game *data, char px)
