@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 21:18:56 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:51:06 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,15 @@ void	check_file(char *file)
 	close(fd);
 }
 
-int	check_rectangular(t_game *data)
+void	check_rectangular(t_game *data)
 {
 	if (data->map.rows == data->map.columns)
 		throw_error(data, 'M', 0);
 	if (data->map.rows <= 2 || data->map.columns <= 2)
 		throw_error(data, 'M', 0);
-	return (0);
 }
 
-int	check_assets(t_game *data)
+void	check_assets(t_game *data)
 {
 	if (data->map.colection < 1)
 		throw_error(data, 'M', 0);
@@ -62,5 +61,25 @@ int	check_assets(t_game *data)
 		throw_error(data, 'M', 0);
 	if (data->map.exit != 1)
 		throw_error(data, 'M', 0);
-	return (0);
+}
+
+void	check_caracters(t_game *data)
+{
+	int		i;
+	int		j;
+	char	c;
+
+	i = 0;
+	while (data->map.map[i])
+	{
+		j = 0;
+		while (data->map.map[i][j])
+		{
+			c = data->map.map[i][j];
+			if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
+				throw_error(data, 'M', 0);
+			j++;
+		}
+		i++;
+	}
 }
