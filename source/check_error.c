@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 21:03:55 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:18:56 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	check_assets(t_game *data)
 		throw_error(data, 'M', 0);
 	if (data->map.person != 1)
 		throw_error(data, 'M', 0);
-	if (data->map.exit < 1)
+	if (data->map.exit != 1)
 		throw_error(data, 'M', 0);
 	return (0);
 }
