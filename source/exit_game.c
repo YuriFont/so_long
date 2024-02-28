@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:00:13 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 20:45:29 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:11:12 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,34 @@ void    free_map(t_game *data)
 	free(data->map.map);
 }
 
-int	destroy_window(t_game *data)
+void	throw_error(t_game *data, char e, int img)
+{
+	if (e == 'M')
+	{
+		ft_printf("Error: This map is irregular\n");
+		free_map(data);
+		exit(1);
+	}
+	destroy_window(data, img);
+	exit(1);
+}
+
+int	destroy_window(t_game *data, int img)
 {
 
 	free_map(data);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_exit);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_gram);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_kidB);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_kidF);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_kidL);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_kidR);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_pok);
-	mlx_destroy_image(data->ptr_mlx, data->img.img_tree);
+	if (img)
+	{
+		ft_printf("TEST");
+		mlx_destroy_image(data->ptr_mlx, data->img.img_exit);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_gram);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidB);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidF);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidL);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidR);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_pok);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_tree);
+	}
 	mlx_destroy_window(data->ptr_mlx, data->w_mlx);
 	mlx_destroy_display(data->ptr_mlx);
 	free(data->ptr_mlx);

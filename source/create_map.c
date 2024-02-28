@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 15:15:44 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 20:58:30 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,9 +117,6 @@ void	init_map(t_game *data, char *file)
 	data->map.map = create_map(file);
 	count_assets(data);
 	take_position(data);
-	if (check_rectangular(data) || check_assets(data))
-	{
-		ft_printf("Error: This map is irregular\n");
-		exit(1);
-	}
+	check_rectangular(data);
+	check_assets(data);
 }

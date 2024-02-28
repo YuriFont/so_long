@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 20:44:09 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:05:38 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ int	on_keypress(int key, t_game *data)
 	static int	moves;
 
 	if (key == ESC)
-		destroy_window(data);
+		destroy_window(data, 1);
 	else
 		move(data, key);
 	if (data->map.colection == 0 && data->map.map[data->pos.y][data->pos.x] == 'E')
-		destroy_window(data);
+		destroy_window(data, 1);
 	moves++;
 	ft_printf("Moves: %d\n", moves);
 	return (0);
