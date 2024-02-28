@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:00:13 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 21:11:12 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:27:59 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int	destroy_window(t_game *data, int img)
 	free_map(data);
 	if (img)
 	{
-		ft_printf("TEST");
 		mlx_destroy_image(data->ptr_mlx, data->img.img_exit);
 		mlx_destroy_image(data->ptr_mlx, data->img.img_gram);
 		mlx_destroy_image(data->ptr_mlx, data->img.img_kidB);
