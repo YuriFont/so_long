@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:48:01 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/25 18:25:04 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:27:09 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_list_libft
+typedef struct s_lst
 {
 	void			*content;
-	struct s_list	*next;
-}	t_list_libft;
+	struct s_lst	*next;
+}	t_lst;
 
 int		ft_isalpha(int c);
 
@@ -90,24 +90,22 @@ void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
 
-t_list_libft	*ft_lstnew(void *content);
+t_lst	*ft_lstnew(void *content);
 
-void	ft_lstadd_front(t_list_libft **lst, t_list_libft *new);
+void	ft_lstadd_front(t_lst **lst, t_lst *new);
 
-int		ft_lstsize(t_list_libft *lst);
+int		ft_lstsize(t_lst *lst);
 
-t_list_libft	*ft_lstlast(t_list_libft *lst);
+t_lst	*ft_lstlast(t_lst *lst);
 
-void	ft_lstadd_back(t_list_libft **lst, t_list_libft *new);
+void	ft_lstadd_back(t_lst **lst, t_lst *new);
 
-void	ft_lstdelone(t_list_libft *lst, void (*d)(void *));
+void	ft_lstdelone(t_lst *lst, void (*d)(void *));
 
-void	ft_lstclear(t_list_libft **lst, void (*del)(void *));
+void	ft_lstclear(t_lst **lst, void (*del)(void *));
 
-void	ft_lstiter(t_list_libft *lst, void (*f)(void *));
+void	ft_lstiter(t_lst *lst, void (*f)(void *));
 
-t_list_libft	*ft_lstmap(t_list_libft *lst, void *(*f)(void *), void (*del)(void *));
-
-void    ft_strcpy(char *str1, const char *str2);
+t_lst	*ft_lstmap(t_lst *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif

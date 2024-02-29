@@ -6,16 +6,16 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:08:38 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/24 14:29:11 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:28:03 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list_libft	*ft_lstmap(t_list_libft *lst, void *(*f)(void *), void (*del)(void *))
+t_lst	*ft_lstmap(t_lst *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list_libft	*first;
-	t_list_libft	*new;
+	t_lst	*first;
+	t_lst	*new;
 
 	if (!f || !del)
 		return (NULL);
