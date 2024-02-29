@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/28 19:51:38 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:17:42 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "../libraries/ft_printf/ft_printf.h"
 # include <stdlib.h>
 # include <unistd.h>
-#include <fcntl.h>
+# include <fcntl.h>
 
 # define GRAM "./assets/gram.xpm"
 # define TREE "./assets/tree.xpm"
@@ -52,10 +52,10 @@ typedef struct s_map
 
 typedef struct s_img
 {
-	void	*img_kidF;
-	void	*img_kidB;
-	void	*img_kidL;
-	void	*img_kidR;
+	void	*img_kidf;
+	void	*img_kidb;
+	void	*img_kidl;
+	void	*img_kidr;
 	void	*img_gram;
 	void	*img_tree;
 	void	*img_exit;
@@ -65,7 +65,7 @@ typedef struct s_img
 typedef struct s_pos
 {
 	int	x;
-	int y;
+	int	y;
 }	t_pos;
 
 typedef struct s_game

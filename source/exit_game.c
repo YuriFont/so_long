@@ -6,17 +6,17 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:00:13 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 21:27:59 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:20:18 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    free_map(t_game *data)
+void	free_map(t_game *data)
 {
-    int i;
+	int	i;
 
-    i = 0;
+	i = 0;
 	while (data->map.map[i])
 		free(data->map.map[i++]);
 	free(data->map.map);
@@ -36,16 +36,15 @@ void	throw_error(t_game *data, char e, int img)
 
 int	destroy_window(t_game *data, int img)
 {
-
 	free_map(data);
 	if (img)
 	{
 		mlx_destroy_image(data->ptr_mlx, data->img.img_exit);
 		mlx_destroy_image(data->ptr_mlx, data->img.img_gram);
-		mlx_destroy_image(data->ptr_mlx, data->img.img_kidB);
-		mlx_destroy_image(data->ptr_mlx, data->img.img_kidF);
-		mlx_destroy_image(data->ptr_mlx, data->img.img_kidL);
-		mlx_destroy_image(data->ptr_mlx, data->img.img_kidR);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidb);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidf);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidl);
+		mlx_destroy_image(data->ptr_mlx, data->img.img_kidr);
 		mlx_destroy_image(data->ptr_mlx, data->img.img_pok);
 		mlx_destroy_image(data->ptr_mlx, data->img.img_tree);
 	}

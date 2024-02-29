@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:18:57 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/27 16:40:04 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/02/28 21:19:07 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	render_images(t_game *data)
 			GRAM, &data->map.columns, &data->map.rows);
 	data->img.img_tree = mlx_xpm_file_to_image(data->ptr_mlx,
 			TREE, &data->map.columns, &data->map.rows);
-	data->img.img_kidF = mlx_xpm_file_to_image(data->ptr_mlx,
+	data->img.img_kidf = mlx_xpm_file_to_image(data->ptr_mlx,
 			KID_F, &data->map.columns, &data->map.rows);
-	data->img.img_kidB = mlx_xpm_file_to_image(data->ptr_mlx,
+	data->img.img_kidb = mlx_xpm_file_to_image(data->ptr_mlx,
 			KID_B, &data->map.columns, &data->map.rows);
-	data->img.img_kidL = mlx_xpm_file_to_image(data->ptr_mlx,
+	data->img.img_kidl = mlx_xpm_file_to_image(data->ptr_mlx,
 			KID_L, &data->map.columns, &data->map.rows);
-	data->img.img_kidR = mlx_xpm_file_to_image(data->ptr_mlx,
+	data->img.img_kidr = mlx_xpm_file_to_image(data->ptr_mlx,
 			KID_R, &data->map.columns, &data->map.rows);
 	data->img.img_exit = mlx_xpm_file_to_image(data->ptr_mlx,
 			EXIT, &data->map.columns, &data->map.rows);
@@ -48,7 +48,7 @@ void	put_image(t_game *data, char px, int x, int y)
 			data->img.img_exit, x * 50, y * 50);
 	else if (px == 'P')
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
-			data->img.img_kidF, x * 50, y * 50);
+			data->img.img_kidf, x * 50, y * 50);
 }
 
 void	draw_map(t_game *data)
