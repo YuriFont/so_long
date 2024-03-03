@@ -6,7 +6,7 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:48:42 by yufonten          #+#    #+#              #
-#    Updated: 2024/02/27 15:19:24 by yufonten         ###   ########.fr        #
+#    Updated: 2024/03/03 12:28:54 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SO_LONG_C = $(SOURCE)so_long.c\
 			$(SOURCE)check_error.c\
 			$(SOURCE)exit_game.c\
 			$(SOURCE)draw_map.c\
-			$(SOURCE)make_move.c
+			$(SOURCE)make_move.c\
+			$(SOURCE)check_file.c
 
 LIBMLX = ./libraries/minilibx-linux/
 LIBMLX_A = $(LIBMLX)libmlx_Linux.a

@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/28 19:52:00 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:48:04 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,4 +120,5 @@ void	init_map(t_game *data, char *file)
 	take_position(data);
 	check_rectangular(data);
 	check_assets(data);
+	check_walls(data);
 }

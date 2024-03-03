@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/28 21:17:42 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:47:45 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void	check_file_ber(char *file);
 void	check_rectangular(t_game *data);
 void	check_assets(t_game *data);
 void	check_caracters(t_game *data);
+void	check_walls(t_game *data);
 
 /* exit_game.c */
 void	free_map(t_game *data);
