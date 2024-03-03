@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 13:22:11 by yufonten          #+#    #+#             */
-/*   Updated: 2024/03/03 12:46:34 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/03 12:50:29 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_walls(t_game *data)
 {
 	int	i;
 	int	j;
-	int c;
+	int	c;
 
 	c = data->map.columns - 1;
 	i = 0;
