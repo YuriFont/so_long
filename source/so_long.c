@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/03/04 19:12:39 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:14:29 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	main(int ac, char **av)
 	check_file(av[1]);
 	init_map(&data, av[1]);
 	initializing_window(&data);
+	draw_map(&data);
 	mlx_key_hook(data.w_mlx, on_keypress, &data);
 	mlx_hook(data.w_mlx, 17, 0, destroy_window, &data);
-	draw_map(&data);
 	mlx_loop(data.ptr_mlx);
 	return (0);
 }
