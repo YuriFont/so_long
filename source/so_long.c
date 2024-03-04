@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:10:31 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/28 21:15:21 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:12:39 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_printf("Wrong initialization\nEx: ./so_long file.ber");
+		ft_printf("Wrong initialization\nEx: ./so_long file.ber\n");
 		exit(1);
 	}
 	check_file(av[1]);
