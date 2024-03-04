@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 17:18:57 by yufonten          #+#    #+#             */
-/*   Updated: 2024/02/28 21:19:07 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/04 19:19:49 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	draw_map(t_game *data)
 	while (data->map.map[i])
 	{
 		j = 0;
-		while (j < data->map.columns)
+		while (data->map.map[i][j])
 		{
 			put_image(data, data->map.map[i][j], j, i);
 			j++;
