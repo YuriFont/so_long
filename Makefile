@@ -6,7 +6,7 @@
 #    By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/01 10:48:42 by yufonten          #+#    #+#              #
-#    Updated: 2024/03/03 12:28:54 by yufonten         ###   ########.fr        #
+#    Updated: 2024/03/04 20:05:23 by yufonten         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,9 @@ CFLAGS = -Wall -Wextra -Werror
 MLXFLAGS = -Lmlx -lXext -lX11
 RM = rm -rf
 
-NAME:
+all: $(NAME)
+
+$(NAME):
 		$(MAKE) -C $(LIBFT)
 		$(MAKE) -C $(FT_PRINTF)
 		$(MAKE) -C $(LIBMLX)
@@ -47,4 +49,6 @@ fclean: clean
 		@$(MAKE) fclean -C $(FT_PRINTF)
 		$(RM) $(NAME)
 
-all: $(NAME)
+re: 	fclean all
+
+.PHONY:	all clean fclean re
