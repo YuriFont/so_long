@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 09:11:12 by yufonten          #+#    #+#             */
-/*   Updated: 2024/03/03 12:47:45 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/06 21:23:53 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ typedef struct s_game
 	t_map	map;
 	t_img	img;
 	t_pos	pos;
+	t_pos	pos_e;
 }	t_game;
 
 /* init_map.c */
@@ -103,5 +104,7 @@ void	draw_map(t_game *data);
 /* make_move.c */
 void	take_position(t_game *data);
 void	move(t_game *data, int key);
+
+void	check_exit_path(t_game *data);
 
 #endif
