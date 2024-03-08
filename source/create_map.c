@@ -6,7 +6,7 @@
 /*   By: yufonten <yufonten@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 14:04:41 by yufonten          #+#    #+#             */
-/*   Updated: 2024/03/06 21:33:23 by yufonten         ###   ########.fr       */
+/*   Updated: 2024/03/07 21:42:00 by yufonten         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,4 @@ void	init_map(t_game *data, char *file)
 	check_assets(data);
 	check_walls(data);
 	check_exit_path(data);
-	int	i = 0;
-	while (data->map.map[i])
-		ft_printf("%s\n", data->map.map[i++]);
 }
