@@ -28,8 +28,6 @@ void	initializing_window(t_game *data)
 
 int	on_keypress(int key, t_game *data)
 {
-	static int	moves;
-
 	if (key == ESC)
 		destroy_window(data, 1);
 	else
@@ -37,8 +35,6 @@ int	on_keypress(int key, t_game *data)
 	if (data->map.colection == 0
 		&& data->map.map[data->pos.y][data->pos.x] == 'E')
 		destroy_window(data, 1);
-	moves++;
-	ft_printf("Moves: %d\n", moves);
 	return (0);
 }
 

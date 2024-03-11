@@ -38,30 +38,24 @@ void	take_position(t_game *data)
 void	put_image_move(t_game *data, char px, int x, int y)
 {
 	if (px == 'P')
-	{
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
 			data->img.img_kidf, x * 50, y * 50);
-	}
 	else if (px == 'B')
-	{
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
 			data->img.img_kidb, x * 50, y * 50);
-	}
 	else if (px == 'L')
-	{
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
 			data->img.img_kidl, x * 50, y * 50);
-	}
 	else if (px == 'R')
-	{
 		mlx_put_image_to_window(data->ptr_mlx, data->w_mlx,
 			data->img.img_kidr, x * 50, y * 50);
-	}
 	if (data->map.map[y][x] == 'C')
 	{
 		data->map.colection--;
 		data->map.map[y][x] = '0';
 	}
+	data->moves++;
+	ft_printf("Moves: %d\n", data->moves);
 }
 
 int	check_move(t_game *data, char px)

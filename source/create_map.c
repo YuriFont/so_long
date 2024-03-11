@@ -112,6 +112,7 @@ void	count_assets(t_game *data)
 
 void	init_map(t_game *data, char *file)
 {
+	data->moves = 0;
 	map_columns(data, file);
 	map_rows(data, file);
 	data->map.map = create_map(file);

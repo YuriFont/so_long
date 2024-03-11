@@ -80,6 +80,20 @@ void	check_exit_around(t_game *data)
 	throw_error(data, 'M', 0);
 }
 
+char	**create_aux_map(t_game *data)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map.map[i])
+	{
+		j = 0;
+		while ()
+	}
+
+}
+
 void	check_exit_path(t_game *data)
 {
 	int		y;
