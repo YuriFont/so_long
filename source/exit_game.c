@@ -12,14 +12,14 @@
 
 #include "so_long.h"
 
-void	free_map(t_game *data)
+void	free_map(char **map)
 {
 	int	i;
 
 	i = 0;
-	while (data->map.map[i])
-		free(data->map.map[i++]);
-	free(data->map.map);
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
 
 void	throw_error(t_game *data, char e, int img)
@@ -27,7 +27,7 @@ void	throw_error(t_game *data, char e, int img)
 	if (e == 'M')
 	{
 		ft_printf("Error: This map is irregular\n");
-		free_map(data);
+		free_map(data->map.map);
 		exit(1);
 	}
 	destroy_window(data, img);
@@ -36,7 +36,7 @@ void	throw_error(t_game *data, char e, int img)
 
 int	destroy_window(t_game *data, int img)
 {
-	free_map(data);
+	free_map(data->map.map);
 	if (img)
 	{
 		mlx_destroy_image(data->ptr_mlx, data->img.img_exit);

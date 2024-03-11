@@ -122,5 +122,5 @@ void	init_map(t_game *data, char *file)
 	check_rectangular(data);
 	check_assets(data);
 	check_walls(data);
-	check_exit_path(data);
+	check_exit_path(data, file);
 }

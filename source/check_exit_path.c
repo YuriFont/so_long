@@ -12,89 +12,53 @@
 
 #include "so_long.h"
 
-void	find_exit(t_game *data, int y, int x)
+void	find_exit(t_game *data, int y, int x, char **map)
 {
-	char	map;
-
-	map = data->map.map[y][x];
 	if (x < 0 || y < 0 || x > data->map.columns || y > data->map.rows)
 		return ;
-	if (map == 'P' || map == '1' || map == 'E' || map == 'C')
+	if (map[y][x] == 'P' || map[y][x] == '1' || map[y][x] == 'E')
 		return ;
-	data->map.map[y][x] = 'P';
-	find_exit(data, y + 1, x);
-	find_exit(data, y - 1, x);
-	find_exit(data, y, x + 1);
-	find_exit(data, y, x - 1);
+	map[y][x] = 'P';
+	find_exit(data, y + 1, x, map);
+	find_exit(data, y - 1, x, map);
+	find_exit(data, y, x + 1, map);
+	find_exit(data, y, x - 1, map);
 }
 
-void	return_map(t_game *data)
+int	check_around(int x, int y, char **map)
+{
+	if (map[y + 1][x] == 'P' || map[y - 1][x] == 'P' ||
+		map[y][x + 1] == 'P' || map[y][x - 1] == 'P')
+		return (0);
+	return (1);
+}
+
+void	check_exit_around(t_game *data, char **map)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	while (data->map.map[i])
+	while (map[i])
 	{
 		j = 0;
-		while (data->map.map[i][j])
+		while (map[i][j])
 		{
-			if (i == data->pos.y && j == data->pos.x)
+			if (map[i][j] == 'E' || data->map.map[i][j] == 'C')
 			{
-				j++;
-				continue ;
-			}
-			if (data->map.map[i][j] == 'P')
-				data->map.map[i][j] = '0';
-			j++;
-		}
-		i++;
-	}
-}
-
-void	check_exit_around(t_game *data)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	while (data->map.map[i])
-	{
-		j = 0;
-		while (data->map.map[i][j])
-		{
-			if (data->map.map[i][j] == 'E')
-			{
-				data->pos_e.y = i;
-				data->pos_e.x = j;
+				if (check_around(j, i, map))
+				{
+					free_map(map);
+					throw_error(data, 'M', 0);
+				}
 			}
 			j++;
 		}
 		i++;
 	}
-	i = data->pos_e.y;
-	j = data->pos_e.x;
-	if (data->map.map[i + 1][j] == 'P' || data->map.map[i - 1][j] == 'P' ||
-		data->map.map[i][j + 1] == 'P' || data->map.map[i][j - 1] == 'P')
-		return ;
-	throw_error(data, 'M', 0);
 }
 
-char	**create_aux_map(t_game *data)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (data->map.map[i])
-	{
-		j = 0;
-		while ()
-	}
-
-}
-
-void	check_exit_path(t_game *data)
+void	check_exit_path(t_game *data, char *file)
 {
 	int		y;
 	int		x;
@@ -102,18 +66,12 @@ void	check_exit_path(t_game *data)
 
 	y = data->pos.y;
 	x = data->pos.x;
-	map = data->map.map;
-	if (map[y + 1][x] == '0')
-		y++;
-	else if (map[y][x + 1] == '0')
-		x++;
-	else if (map[y - 1][x] == '0')
-		y--;
-	else if (map[y][x - 1] == '0')
-		x--;
-	else
-		throw_error(data, 'M', 0);
-	find_exit(data, y, x);
-	check_exit_around(data);
-	return_map(data);
+	map = create_map(file);
+	find_exit(data, y + 1, x, map);
+	find_exit(data, y - 1, x, map);
+	find_exit(data, y, x + 1, map);
+	find_exit(data, y, x - 1, map);
+	find_exit(data, y, x, map);
+	check_exit_around(data, map);
+	free_map(map);
 }

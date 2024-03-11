@@ -81,13 +81,14 @@ typedef struct s_game
 
 char	**create_map(char *file);
 void	init_map(t_game *data, char *file);
+char	**create_map(char *file);
 void	check_file(char *file);
 void	check_file_ber(char *file);
 void	check_rectangular(t_game *data);
 void	check_assets(t_game *data);
 void	check_caracters(t_game *data);
 void	check_walls(t_game *data);
-void	free_map(t_game *data);
+void	free_map(char **map);
 int		destroy_window(t_game *data, int img);
 void	throw_error(t_game *data, char e, int img);
 void	render_images(t_game *data);
@@ -95,6 +96,6 @@ void	put_image(t_game *data, char px, int x, int y);
 void	draw_map(t_game *data);
 void	take_position(t_game *data);
 void	move(t_game *data, int key);
-void	check_exit_path(t_game *data);
+void	check_exit_path(t_game *data, char *file);
 
 #endif
